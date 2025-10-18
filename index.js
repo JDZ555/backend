@@ -18,10 +18,8 @@ const app = express();
 const server = http.createServer(app);
 
 // Configurar Socket.IO con múltiples orígenes
-<<<<<<< HEAD
+
 const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:3000,http://localhost:3001,http://mi-proyecto-dashboard-jda-2025.s3-website-us-east-1.amazonaws.com,http://mi-proyecto-mobile-jda-2025.s3-website-us-east-1.amazonaws.com")
-=======
-const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:3000,http://localhost:3001")
   .split(',')
   .map(o => o.trim());
 
