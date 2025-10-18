@@ -18,8 +18,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Configurar Socket.IO con múltiples orígenes
-
-const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://mi-proyecto-dashboard-jda-2025.s3-website-us-east-1.amazonaws.com,http://mi-proyecto-mobile-jda-2025.s3-website-us-east-1.amazonaws.com")
+const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:3000,http://localhost:3001,http://mi-proyecto-dashboard-jda-2025.s3-website-us-east-1.amazonaws.com,http://mi-proyecto-mobile-jda-2025.s3-website-us-east-1.amazonaws.com")
   .split(',')
   .map(o => o.trim());
 
@@ -44,7 +43,7 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
-// CORS para múltiples orígenes (3000 y 3001 por defecto)
+// CORS para múltiples orígenes
 app.use(cors({
   origin: (origin, callback) => {
     // Permitir requests sin origin (Postman, curl)
